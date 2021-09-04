@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Mobile Price Classification </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+        .predict{
+            background-color: rgb(8, 8, 8);
+            padding-top: 100px;
+            width:cover;
+            height: 200px;
+            color: white;
+        }
+
+        .button{
+        padding-left:500px;
+        padding-top:20px;
+        }
+
+
+</style>
+
+</head>
+<body class="container">
+
+
+        <div class="jumbotron" style="cover">
+            <center>
+                <h1 class="display-4">Mobile Price Classification</h1><br>
+<!--                <h3>Mobile Price Classification</h3>-->
+                <img src="static/images/mobile2.png" alt="spark logo" style="width:80%;height:50%;">
+            </center>
+            <hr class="my-4">
+        </div>
+
+     <div>
+          <center><h5 for="input hours">Enter correct  details of flower Below</h5></center>
+     </div><br>
+
+     <div class="container">
+
+             <form action="{{url_for('predict')}}" method="post" >
+
+
+                 <input type="text" class="form-control" id="battery_power", name="battery_power" placeholder="Battery Power (Total energy a battery can store in one time measured in mAh)" style="margin-bottom:2%" required>
+
+<!--                 <input type="text" class="form-control" id="dual_sim", name="dual_sim" placeholder="Has dual sim support or not? if N0:-0, Yes:-1" style="margin-bottom:2%">-->
+                 <label for="dual_sim">Has dual sim support or not?  :-</label>
+                 <select name="dual_sim" id="dual_sim" style="margin-bottom:2%">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                 <input type="text" class="form-control" id="fc", name="fc" placeholder="Front Camera mega pixel" style="margin-bottom:2%" required>
+<!--                 <input type="text" class="form-control" id="four_g", name="four_g" placeholder="Has 4G or not? if N0:-0, Yes:-1" style="margin-bottom:2%">-->
+                <label for="four_g">Has 4G or not?  :-</label>
+                 <select name="four_g" id="four_g" style="margin-bottom:2%">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                 <input type="text" class="form-control" id="int_memory", name="int_memory" placeholder="Internal Memory in Gigabytes" style="margin-bottom:2%" required>
+                 <input type="text" class="form-control" id="n_cores", name="n_cores" placeholder="Number of cores of processor" style="margin-bottom:2%" required>
+                 <input type="text" class="form-control" id="pc", name="pc" placeholder="Primary Camera mega pixels" style="margin-bottom:2%" required>
+                 <input type="text" class="form-control" id="ram", name="ram" placeholder="RAM (Random Access Memory in Megabyte)" style="margin-bottom:2%" required>
+<!--                 <input type="text" class="form-control" id="touch_screen", name="touch_screen (Has touch screen or not? if N0:-0, Yes:-1)" placeholder="touch_screen">-->
+                 <label for="touch_screen">Has touch screen or not? :-</label>
+                 <select name="touch_screen" id="touch_screen" style="margin-bottom:2%" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                 <br><br>
+
+                 <div class="container">
+                     <center><button type="submit" class="btn btn-primary">Predict</button></center>
+                 </div>
+
+            </form>
+
+     </div>
+
+    <div class="container">
+        <div class="predict">
+            <center>{{predict_text}}</center>
+        </div>
+    </div>
+
+</body>
+</html>
